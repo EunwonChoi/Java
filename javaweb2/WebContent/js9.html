@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	function func1() {
+		document.getElementById("show").innerHTML = "전통적인 이벤트 처리";
+	}
+
+	var a = 10;
+	var b = {
+		funcNew : function() { //무명함수에 이름을 저렇게 줄 수 있다.
+			document.getElementById("show").innerHTML = "b 객체변수의 메소드처럼 사용"
+		},
+
+		funcNew2 : function() {
+			document.getElementById("show").innerHTML = "b 객체변수의 멤버로 사용"
+		}
+
+	}
+
+	window.onload = function() { //문서로딩 완료 시 자동 호출(callback function) 한번사용이라 이름없는 함수 사용
+
+		//alert("success")
+		//document.getElementById("show").innerHTML= "문서 읽기 완료"
+		exBtn1 = document.getElementById("btn1"); //버튼 찾아와서 넘겼다(치환)
+		exBtn1.onclick = function() {//그리고 이벤트핸들러 장착
+			document.getElementById("show").innerHTML = "클릭1 완료"; //이런방법을 추천한다.
+		}
+
+		/*
+
+		exBtn2 = document.getElementsByName("myBtn"); //name이 같아서 배열이되어버렸다.
+		exBtn2[0].onclick = function(){//그리고 이벤트핸들러 장착
+			document.getElementById("show").innerHTML= "클릭2 완료"; //이런방법을 추천한다.
+		}
+		exBtn2[1].onclick = function(){//그리고 이벤트핸들러 장착
+			document.getElementById("show").innerHTML= "클릭3 완료"; //이런방법을 추천한다.
+		}
+
+		 */
+
+		exBtn2 = document.getElementsByName("myBtn")[0]; //name이 같아서 배열이되어버렸다.
+		exBtn2.onclick = function() {//그리고 이벤트핸들러 장착
+			document.getElementById("show").innerHTML = "클릭2 완료"; //이런방법을 추천한다.
+		}
+
+		exBtn3 = document.getElementsByTagName("input")[5]; //name이 같아서 배열이되어버렸다.
+		exBtn3.onclick = function() {//그리고 이벤트핸들러 장착
+			document.getElementById("show").innerHTML = "클릭3 완료"; //이런방법을 추천한다.
+		}
+
+		document.getElementById("btn4").onclick = abc; //이벤트 헨들러 / 이건 이벤트 걍 걸어버림
+		document.getElementById("btn5").addEventListener("click", kbs); //이벤트 종류 /이건 줬다 뺐다 가능
+	}
+	
+	function abc() {
+		document.getElementById("show").innerHTML = "클릭4 수행하기";
+	}
+
+	function kbs() {
+		document.getElementById("show").innerHTML = "클릭5 수행";
+		document.getElementById("btn5").removeEventListener("click", kbs);
+	}
+</script>
+</head>
+<body>
+
+	** 이벤트 처리 **
+	<br>
+	<input type="button" value="버튼1" onclick="func1()">
+	<br />
+	<input type="button" value="버튼2" onclick="b.funcNew()">
+	<br />
+	<!-- 함수받은거니까 ()해줘 -->
+	<input type="button" value="버튼3" onclick="b.funcNew2()">
+	<br />
+
+	<!-- event 분리 -->
+	<input type="button" value="클릭1" id="btn1">
+	<input type="button" value="클릭2" id="btn2" name="myBtn">
+	<input type="button" value="클릭3" id="btn3" name="myBtn" />
+	<input type="button" value="클릭4" id="btn4">
+	<input type="button" value="클릭5" id="btn5">
+
+	<hr>
+
+	<div id="show"></div>
+
+</body>
+
+</html>

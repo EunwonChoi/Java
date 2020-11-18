@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<script type="text/javascript">
+function tdclick(arg){
+	alert(arg);
+}
+
+$(document).ready(function(){
+	$("td").click(function(){
+		alert($(this).text());   
+	});
+	
+	$('div').dblclick(function(){
+		alert($(this).text());
+	});
+	
+	$("#txtA").keydown(function(event){    //event의 정보를 얻고 싶으면 function 안에 event 쓰기
+		$("#txtB").val(event.keyCode);   //txtA의 값을 txtB에 줌
+	});
+	
+	// on, bind : 확장성이 있는 이벤트 관련 메소드
+	// on과 bind의 차이점: bind는 묶고 풀기가 가능하지만 on은 그렇지 않음
+	//$("#btn").on(...);
+	$("#btn").bind("click", function(){   //bind는 묶었다가 풀어줄 수도 있음(버튼을 한 번 누르고 나면 그 다음부터는 실행이 안됨)
+		alert("버튼 이벤트 발생");
+	
+		$("#btn").unbind("click");   //풀음
+	});
+	
+	var count = 0;
+	$("#myArea").bind("mouseenter mouseleave", function(event){
+		count++;
+		$("#mResult").text(count + " enter or leave");
+		
+		if(event.type === "mouseenter"){
+			$("#mResult").css("background", "red");
+		}else if(event.type === "mouseleave"){
+			$("#mResult").css("background", "yellow");
+		}
+	});
+
+});
+</script>
+</head>
+<body>
+** 이벤트 연습 **<br>
+<table border="1">
+	<tr>
+		<td onclick="tdclick('오늘도 무사히');">kbs</td>
+		<td>mbc</td>
+		<td>sbs</td>
+	</tr>
+</table>
+<br>
+<div>더블 클릭 대상</div>
+<br>
+키보드 이벤트 문자 입력 : <br>
+<input type="text" id="txtA"/>
+<input type="text" id="txtB"/>
+<br><br>
+<button id="btn">bind 이벤트 연습</button>
+<br><br>
+<span id="myArea" style="background-color: yellow;">마우스 올리고 내리기 : <b id="mResult"></b></span>
+<br><br>
+
+</body>
+</html>

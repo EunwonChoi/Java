@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+.focused {
+	background-color: #bbb;
+}
+</style>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("label").css("color", "#a12");
+	$("h1").css({"color":"red", "text-decoration":"underline"});   //여러개의 속성을 쓰기 위해 {}를 씀
+	$("#message").wrap("<h2/>");    //<h2>대상</h2>   (<h2>로 wrapping함)
+	
+	//이벤트
+	/*
+	$("input").focus(function(){   //input element에 foucs 발생
+		$(this).addClass("focused");
+	});    
+	*/
+	
+	//여러가지의 메소드(이벤트)를 사용할 수 있음(진짜 많아유)
+	$("input").on("focus", function(){   //위에랑 같은데 이거는 event를 여러개 쓸 수 있음
+		$(this).addClass("focused");
+	}); 
+	
+	$("input").on("blur", function(){  
+		$(this).removeClass("focused");
+	}); 
+	
+	$("#frm").submit(function(event){
+		event.preventDefault();    //기본 기능 해제시킴(원래 고유의 이벤트 기능 해제 후 다른 기능으로 기술 가능)
+		//alert("abc");
+		
+		var newEle = "<li>" + $("#data").val() + "</li>";
+		$("#disp").append(newEle);
+	});
+	
+	$("a").click(function(event){  //네이버로 가지 않음(고유 기능 수행)
+		event.preventDefault();
+		alert("다른 일 하기");
+	});
+});
+
+</script>
+</head>
+<body>
+<h1>jQuery 메소드 실습</h1>
+<div id="message">이벤트</div>
+
+<form action="#" id="frm">
+<label for="data">자료 입력:</label> 
+<input type="text" id="data">
+<input type="submit" value="확인">
+</form>
+<ul id="disp"></ul>
+<p/>
+<a href="https://www.naver.com">naver</a>
+</body>
+</html>

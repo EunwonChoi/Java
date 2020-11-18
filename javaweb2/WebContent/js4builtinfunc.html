@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>내장함수</h2>
+<script type="text/javascript">
+document.write('--문자 함수--');
+var str = 'Java script Language';
+document.write('<br>', str.charAt(2));
+document.write('<br>', str.indexOf('v'));
+document.write('<br>', str.substring(1, 3));
+document.write('<br>', str.length);
+document.write('<br>', str.toLowerCase());
+
+document.write("<p/>--style 함수--");
+document.write('<br>', str.bold().fontcolor('#6b8c5d').fontsize(24));
+document.write('<br>', str.big());
+document.write('<br>', str.small);
+document.write('<br>', str.strike());
+document.write('<br>', str.italics());
+
+document.write('<p/>--수학 함수--');
+document.write('<br>', Math.abs(-5));
+document.write('<br>', Math.round(3.5));
+document.write('<br>', Math.floor(3.5));   //무조건 버림
+document.write('<br>', Math.ceil(3.5));    //무조건 취함
+document.write('<br>', Math.random());     //난수 발생
+
+document.write('<p/>--날짜 함수--');
+d = new Date();
+document.write('<br>', d);
+document.write('<br>', new Date());
+document.write('<br>', d.getFullYear() + " " + (d.getMonth() +1));
+d.setTime(Date.parse("jan 1,2000"));
+document.write('<br>', d.getFullYear() + " " + (d.getMonth() +1));
+
+document.write('<p/>--기타 함수--');
+document.write('<br>', "3.4" + 5);
+document.write('<br>', parseInt("3.4") + 5);
+document.write('<br>', parseFloat("3.4") + 5);
+document.write('<br>', eval("5 + 3 * 2"));   //연산하게 해줌
+var ss = encodeURI("자바스크립트");  //암호화됨
+document.write('<br>', ss);
+ss = decodeURI(ss);   //암호화된것을 풀어줌
+document.write('<br>', ss);
+
+document.write('<br>', isNaN("3"));  //not a number
+document.write('<br>', isNaN("삼"));
+
+open("js1.html", "대화상자", "width=300, height=200, resizable=yes");    //창을 열어줌(pop up?)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	js 변수와 연산자
+	<br>
+	<!--html 주석 -->
+	<script>
+		//작은따옴표와 큰 따옴표를 구분하지 않음
+		//;는 잘 안씀
+		var aa; //변수 선언  /*변수 선언*/
+		aa = 100;
+		var bb = 200.5;
+		cc = 300;
+		dd = 400;
+		dd = "결과는";
+		ee = null;
+		ff = false;
+		document.write(dd, "aa: ", aa, ', bb: ', bb, ', cc: ', cc, ', ee: ',
+				ee, ' ,ff: ', ff); //+가 아닌 ,임
+		{
+			var v1 = 1;
+			{
+				var v2 = 2;
+				{
+					var v3 = 3;
+				}
+			}
+		}
+		document.write("<br>", v1, " ", v2, " ", v3);
+	</script>
+	<hr>
+	<script type="text/javascript">
+	var x = 5, y = 2;
+	document.write("<br>",x," ",y," ",x+y);
+	document.write("<br>",x/y, "&nbsp;&nbsp;&nbsp;", x%y);
+	document.write("<br>",x>y, " ", x<=y, " ", x==y, ' ', x===y, ' ', x!==y);  //==는 주소비교, ===는 값비교
+	document.write("<br>", (x>y)?1000:200+1000);
+	re = 50 > 20 && y==2;
+	document.write("<br>", re);
+	document.write("<br>", typeof(x), ' ', typeof(re));
+	re1 = 5 == "5";  // == 형 변환 후 값 비교
+	re2 = 5 === "5";  // == 형 변환 없이 값 비교
+	document.write("<br>", re1, " ", re2);
+	re3 = 'c'+"a"+'t' == 'cat';   //모두 문자열로 받아들임(자바스크립트는 "와 '는 구분하지 않음) + 대신 대소문자는 구분함
+	document.write("<br>", re3);
+	</script>
+</body>
+</html>

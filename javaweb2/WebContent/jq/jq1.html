@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+.korea {font-size: 50px;}
+</style>
+
+<!-- jquery library 방법1 -->
+<!-- <script src="../js/jquery.js"></script> -->
+
+<!-- jquery library 방법2 -->
+<!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.js"></script> -->
+
+<!-- jquery library 방법3 -->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<script type="text/javascript">
+//window.onload = function(){};
+//jQuery(document).ready(function()){}  //$와 jQuery는 같음, 서버로부터 문서가 읽히면 ready해라(jquery가 javascript보다 빠름)
+//$:어떠한 것을 선택하겠다
+//jquery로 css 연습
+$(document).ready(function(){   
+	//alert("a");
+	$("*").css("border", "1px solid #ff0000");   //메소드임
+	$('span').css("border", "3px dotted blue");
+	jQuery('#content').css("background-color", "cyan");
+	$('.my').css("border", "5px solid yellow");
+	$('i>.my').css("color", "red");
+});
+
+//$(document).ready(function(){   
+$(function(){
+	$(".kor").css("color", "green").addClass("korea");   //method chain(점을 찍어가면서 계석 출근)
+});
+</script>
+
+
+</head>
+<body>
+<h2>jQuery 연습</h2>
+<p class="my">화창한 날씨</p>
+<div>
+	<div id="content">공기도 매우 좋음</div>
+</div>
+<b>점심을 먹으니 나른하군 - 조이 왈ㅋ</b>
+<br>
+<span>강남 거리</span>
+<i><span class="my">시원한 바람</span></i>
+<br>
+<b class="kor">대한민국 만세</b>
+</body>
+</html>

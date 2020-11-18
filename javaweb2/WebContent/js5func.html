@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//head tag 내에서 선언 후 body영역에서 호출
+count = 0;
+function aa(){
+	count += 1;
+	return;    //함수의 탈출
+	document.write(count + "번 호출<br>");
+}
+
+function bb(){
+	document.write("함수 내에서 함수 호출 가능");
+	cc(7);
+	var re = cc(10);
+	document.write("<br>bb 안에서 re에 의한 kk " + re);
+	
+	dd(5, 10);
+	dd(5);
+	dd(5 ,10 ,15);    //개수 안맞아서 버려짐
+}
+
+function cc(arg){
+	var kk = arg + 10;
+	document.write("<br>cc안에서 kk " + kk);
+	return kk;
+}
+
+function dd(arg1, arg2){
+	document.write("<br>dd 안에서 " + arg1 + " " + arg2);
+}
+
+function f1(){   //1급 함수 지원(1급함수: 함수가 함수를 줄 수 있음, 함수를 리턴할 수 있음, 파라미터에 함수를 줄 수 있음)
+	document.write("<br>안녕?");
+}
+function f2(func){
+	func();
+}
+function f3(){
+	//return f1();
+	return f1;
+}
+function hi(){
+	f2(f1);    //주소 넘김
+	//f3();
+	sbs = f3();
+	sbs();
+	
+	f3()();  //함수 리턴
+}
+</script>
+
+<script type="text/javascript">
+//지역변수와 전역변수
+a = 10;    //전역 변수
+var b =20;   //전역 변수
+
+function fu1(){
+	var c = 30;   //지역 변수(var이 변수명으로 인정해주기 때문에)
+	d = 40;       //전역 변수
+	document.write("<br>a: " + a + ",b: " + b);
+	document.write("<br>c: " + c + ",d: " + d);
+}
+function fu2(){
+	document.write("<br>a: " + a + ",b: " + b);
+	//document.write("<br>c: " + c + ",d: " + d);
+	document.write("<br>d: "+ d);
+}
+
+</script>
+</head>
+<body>
+사용자 정의 함수<p/>
+<script type="text/javascript">
+function my(){   //만들어 두고 필요할 때 부름
+	document.write('body 내에서 선언한 함수');
+}
+my();
+</script>
+<br>html 작업 하다가...<br>
+<script type="text/javascript">
+my();
+document.write("<br>");
+aa();    //head에 있는 aa함수를 불러옴
+aa();
+kbs = bb;   //치환 가능
+kbs();
+document.write("<hr>");
+f1();  
+hi();
+document.write("<hr>");
+fu1();
+fu2();   //지역변수를 호출할때는 에러가 남
+</script>
+</body>
+</html>
