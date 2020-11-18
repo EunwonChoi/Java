@@ -1,0 +1,107 @@
+@charset "UTF-8";
+/* 이거 주석 */
+#i2 {
+	background-color: yellow;
+	color: red;
+	font-size: 24px;
+}
+
+table {
+	width: 70%;
+	margin-bottom: 10px;	
+}
+
+/* table 안에 있는 tr 안에 td에게 style을 넣겠음 */
+table tr td {
+	padding: 5px 10px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px dashed blue;
+}
+
+input {
+	border: 5px double rgb(0, 255, 0);
+	background-color: rgb(100%, 100%, 0%);
+}
+
+/* 태그 안에 들어있는 클래스나 아이디를 쓸 수 있음 */
+input.btnOk {
+	border: 1px solid black;
+	background-color: olive;
+}
+
+
+/* --------------------------------- */
+/* dynamic 동적 선택자 */
+/* 마우스 클릭할때마다 포커스 맞춰줘서 바꿔줌 */
+input:focus {
+	background-color: #aabbcc;
+}
+
+/* 밑줄 없애줌 */
+a:link {
+	text-decoration: none;  
+}
+
+/* 방문하는 곳 */
+a:visited {
+	color:red;
+}
+
+/* 마우스 누를 때 */
+a:active {
+	color: yellow;
+	font-family: 궁서;
+}
+
+/* 마우스 올릴때 */
+a:hover {
+	color: cyan;
+	font-size: 60px;
+}
+
+
+
+/* --------------------------------- */
+/* 동급 */
+i, strong{
+	color: #f00;
+}
+
+b {
+	font-size: 8px;
+}
+
+/* div 안의 b */
+div b {
+	font-size: 16px;
+}
+
+/* div 바로 밑에(직계만) b */ 
+div > b {
+	font-size: 24px;
+}
+
+div span b {
+	font-size: 32px;
+}
+
+/* id */
+div b#hi {
+	font-size: 40px;
+}
+
+/* class */
+div b.hi {
+	font-size: 50px;
+}
+
+
+/* ------------------------------------ */
+div#pic {
+	height: 150px;
+	background-image: url('../images/댕댕이.jpg');
+}
+
+img {
+	border: 3px dotted red;
+}
