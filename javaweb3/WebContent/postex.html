@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>post test</h2>
+<form action="postServlet" method="post">
+이름: <input type="text" name="name" value="손오공"><br>
+주소1: <input type="text" name="addr" value="서울시"><br>
+주소2: <input type="text" name="addr" value="강남구"><br>
+
+<!-- checkbox -->
+현재 가능한 언어는?<br>
+<input type="checkbox" name="lan" value="C언어">C<br>
+<input type="checkbox" name="lan" value="JAVA언어">JAVA<br>
+<input type="checkbox" name="lan" value="PYTHON언어">PYTHON<br>
+
+<!-- radio -->
+현재 사용 중인 운영체제는?<br>
+<input type="radio" name="os" value="윈도우">윈도우&nbsp;&nbsp;<br>
+<input type="radio" name="os" value="리눅스" checked="checked">리눅스&nbsp;&nbsp;<br>
+<input type="radio" name="os" value="맥">맥&nbsp;&nbsp;<br>
+
+<!-- select -->
+현재 이용 중인 교통수단?<br>
+<select name="tr">
+	<option>버스</option>
+	<option>전철</option>
+	<option>도보</option>
+	<option>기타</option>
+</select>
+
+<!-- hidden -->
+<input type="hidden" name="msg" value="주말을 잘 지내자">
+
+<br><br><br>
+<input type="submit" value="자료 전송">
+</form>
+</body>
+</html>

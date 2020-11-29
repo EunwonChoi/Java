@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=function(){
+	var btnOk = document.getElementById("btnOk");
+	btnOk.addEventListener("click", aaFunc);
+}
+
+function aaFunc(){
+	//alert("a");
+	if(frm.name.value === ""){
+		frm.name.focus();
+		alert("이름 입력");
+		return;
+	}
+	//...
+	
+	frm.submit();  //전송 보냄 
+	
+}
+</script>
+</head>
+<body>
+<h2>get test</h2>
+<!-- GetServlet은 가짜이름(mapping위해서 자기가 원하는 거 아무렇게 써도 됨  / 얘는 파일 달라고 요청함 -->
+<form action="GetServlet" method="get" name="frm">  
+이름 : <input type="text" name="name" value="홍길동"><br>
+나이 : <input type="text" name="age" value="22"><br>
+주소 : <input type="text" name="addr" size="50" value="역삼동123"><br>
+<br>
+<input type="button" id="btnOk" value="자료 전송"><br>
+<input type="reset" id="btnCancle" value="지우기"><br>
+
+</form>
+</body>
+</html>
